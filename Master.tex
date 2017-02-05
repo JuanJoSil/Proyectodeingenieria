@@ -1,0 +1,102 @@
+\documentclass[12pt,letterpaper]{book}
+
+%Paquetes esenciales
+\usepackage[top=3 cm,bottom=3.cm,right=3cm,left=3cm]{geometry} %Para definir y diseñar los margenes de la pagina
+\usepackage{pdfpages}
+\usepackage[utf8]{inputenc} %Permite al usuario introducir caracteres acentuados directamente desde el teclado (latin1, utf8, koi8r) Tambien se puede usar ambos (\usepackage[T1]{fontenc} y \usepackage[latin1]{inputenc}) La combinación inputenc-fontenc parece lento y engorroso, pero es seguro. Esta combinacion s útil para documentos en inglés; tan pronto como utilices cualquier caracter fuera del codigo ASCII, necesitarás estos paquetes.
+\usepackage{graphicx} %Para importar las gráficas
+\usepackage{makeidx} %Crea un indice con \makeindex
+\usepackage[english]{babel} %Permite escribir lenguaje en español (ñ)
+\usepackage{xcolor} %Soporta un gran numero de colores y es mas flexible que color
+\usepackage{hyperref} %Maneja  los comandos de referencias cruzadas para producir enlaces de hipertexto en el documento, útil cuando el formato resultante es PDF y los hipervínculos pueden seguirse. [colorlinks] escribe ()citas, indice, figuras, tablas, pie de notas) en rojo sin recuadros, [colorlinks=false] u omitiendolo escribe en negro con cuadros rojos,  [colorlinks=false, linktocpage=true] escribe en negro con cuadros rojos unicamente las paginas y citas.
+\usepackage{cite} %Comprime listas de 3 o mas citas consecutivas
+\usepackage{amsmath, amsthm, amssymb, amsfonts,amsbsy,amstext,amscd,amsxtra,amsopn} %Debido a que amssymb carga internamente a amsfonts, es suficiente cargar el primero.
+\usepackage{epstopdf} %Cuando usas imagenes con extension eps, pueden convertilas a pdf
+\usepackage[titletoc,toc,page]{appendix}
+\usepackage{fancyhdr} %para modificar cabeceras y pies de páginas
+\usepackage{float} %Para adecuar las tablas y figuras
+%\usepackage{subcaption} %Los títulos de figuras, tablas, subfiguras y subtablas en LaTeX se pueden personalizar de varias maneras mediante el paquete de \usepackage{caption} y \usepackage{subcaption}
+%\usepackage{tikz} %Para crear elementos graficos, lineas, puntos, curvas, circulos, rectangulos, etc (https://www.sharelatex.com/learn/TikZ_package)
+%\usepackage{picture}
+\usepackage{multicol}
+\usepackage{subfigure}
+\usepackage{dsfont}
+\usepackage{bbm}
+\usepackage{bbold}
+\usepackage{microtype}
+\usepackage{physics}         %necesito physics.sty
+\usepackage{braket} %escribir brakets en latex
+\usepackage[mathscr]{euscript}
+\usepackage{bbm} %1 \mathbbm{1}
+%\spanishdecimal{.}
+\usepackage{empheq}
+\usepackage{cancel}
+\usepackage{tensor}
+\usepackage{comment}
+\newcommand{\harpoon}{\overset{\rightharpoonup}}
+
+\usepackage[pages=some]{background}%Para colocar una imagen de fondo (http://texdoc.net/texmf-dist/doc/latex/background/background.pdf)
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\floatplacement{figure}{H} %Comando junto con \usepackage{float} para hacer que las imagenes se coloquen justo donde se quiere.
+
+\hypersetup{ hidelinks,} %Con éste y \usepackage{hyperref} escribe las citas en negro y sin cuadros
+
+\pagestyle{fancyplain} %Con éste y \usepackage{fancyhdr} modificas cabeceras y pie de notas
+%\renewcommand{\chaptermark}[1]{%
+%\markboth{\thechapter.\ #1}{}}
+\fancyhf{}
+%\fancyhead[LE,RO]{\thepage} %Numero de pagina en la cabecera lado izquierdo paginas par
+\fancyhead[RE]{\normalsize\nouppercase{\leftmark}} %Capitulo a la derecha R en pags. pares
+\fancyhead[LO]{\normalsize\nouppercase{\rightmark}} %Seccion a la izquierda en pags. impares
+%\fancyfoot[CE,CO]{\leftmark} %Capitulo centrado en ambas paginas
+\fancyfoot[LE,RO]{\thepage} %Numero de pagina en el pie de pagina L(left field) E(even page) R(right field) O(odd page) C(center field) H(headers) F(footer)
+
+\renewcommand{\headrulewidth}{0.01pt} %gruero de la linea en la cabecera
+\renewcommand{\footrulewidth}{0pt} %gruero de la linea en el pie de pagina
+% % % % % % % % % %Comandos sugeridos por Champi % % % % % % % % % % % % % %
+\newcommand{\fullref}[1]{\ref{#1} de la p\'{a}gina \pageref{#1}}
+
+
+\makeindex
+
+\begin{document}
+
+\frontmatter %Frontmatter
+        \input{Titlepage}
+		\include{Abstract}
+		\include{Dedication}
+
+
+    \tableofcontents
+    %\listoffigures
+
+
+\mainmatter
+%	\part{Introducción}
+	    \include{Chapter1}
+	
+%	\part{AcDebil}
+        \include{Chapter2}
+
+        \include{Chapter3}
+
+        \include{Chapter4}
+
+        \include{Chapter5}
+
+
+\appendix
+
+%    \part{Apéndices}
+		\include{Appendix1}
+
+%    \part{Publicaciones}
+	%	\include{Publications}
+
+\backmatter
+
+	\bibliographystyle{ieeetr}	
+	\bibliography{ref}
+
+
+\end{document} 
